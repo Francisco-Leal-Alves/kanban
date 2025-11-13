@@ -6,20 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.francisco.task.R
-import com.francisco.task.databinding.FragmentLoginBinding
+import com.francisco.task.databinding.FragmentRecoverAccountBinding
 import com.francisco.task.databinding.FragmentRegisterBinding
 
-class LoginFragment : Fragment() {
 
-    private var _binding: FragmentLoginBinding? = null
+class RecoverAccountFragment : Fragment() {
+
+    private var _binding: FragmentRecoverAccountBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentLoginBinding.inflate(inflater,container,false)
+    ): View{
+        // Inflate the layout for this fragment
+        _binding = FragmentRecoverAccountBinding.inflate(inflater,container,false)
         return binding.root
     }
 
