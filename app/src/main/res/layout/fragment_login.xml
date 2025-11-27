@@ -17,6 +17,10 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="25dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FRANCISCO LEAL ALVES"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,6 +54,7 @@
         android:background="@drawable/bg_edit_text"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login"
@@ -65,6 +70,7 @@
         android:layout_marginTop="4dp">
 
         <TextView
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Criar Conta"
@@ -73,6 +79,7 @@
             android:textColor="@color/white"/>
 
         <TextView
+            android:id="@+id/btnRecover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Recuperar Conta"
@@ -85,7 +92,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/white"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        tools:visibility="visible"
+        android:visibility="invisible"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
