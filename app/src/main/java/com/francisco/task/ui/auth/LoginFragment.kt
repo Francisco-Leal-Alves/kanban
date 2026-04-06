@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.francisco.task.R
 import com.francisco.task.databinding.FragmentLoginBinding
-import com.francisco.task.databinding.FragmentRegisterBinding
+import com.francisco.task.util.showBottomSheet
 
 class LoginFragment : Fragment() {
 
@@ -26,13 +26,12 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initListener()
     }
 
     private fun initListener(){
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_global_homeFragment)
+            validateData()
         }
         binding.btnRegister.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
@@ -41,6 +40,23 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_recoverAccountFragment)
         }
     }
+    private fun validateData() {
+        val email = binding.emailText.text.toString().trim()
+        val senha = binding.senhaText.text.toString().trim()
+
+        if (email.isNotBlank()) {
+            if (senha.isNotBlank()) {
+                // Comentário temporário somente para testar a validação dos dados
+                findNavController().navigate(R.id.action_global_homeFragment)
+
+            } else {
+                showBottomSheet(message = R.string.password_empty)
+            }
+        } else {
+            showBottomSheet(message = R.string.email_empty)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

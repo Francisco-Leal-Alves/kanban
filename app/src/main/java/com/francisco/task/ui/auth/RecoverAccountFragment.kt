@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import com.francisco.task.R
 import com.francisco.task.databinding.FragmentRecoverAccountBinding
 import com.francisco.task.databinding.FragmentRegisterBinding
-
+import com.francisco.task.util.initToolbar
+import android.widget.Toast
+import com.francisco.task.util.showBottomSheet
 
 class RecoverAccountFragment : Fragment() {
 
@@ -25,8 +27,31 @@ class RecoverAccountFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initToolbar(binding.toolbar)
+        initListener()
+    }
+
+    private fun initListener() {
+        binding.buttonEnviar.setOnClickListener {
+            validateData()
+        }
+    }
+
+    private fun validateData() {
+        val email = binding.editEmail.text.toString().trim()
+
+        if (email.isNotBlank()) {
+            Toast.makeText(requireContext(), "Tudo OK!", Toast.LENGTH_SHORT).show()
+        } else {
+            showBottomSheet(message = R.string.email_empty)
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }
