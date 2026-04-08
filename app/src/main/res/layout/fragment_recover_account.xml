@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FRANCISCO LEAL ALVES"/>
+            android:text="@string/nome"/>
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recuperar Conta"
+                android:text="@string/text_title_toolbar_recover_account_fragment"
                 android:textColor="@color/white"
                 android:layout_gravity="center_horizontal"/>
 
@@ -45,7 +45,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Informe seu e-mail de cadastro para receber \n um link para alteração de senha."
+                android:text="@string/text_info_recover_account_fragment"
                 android:id="@+id/textViewMensagem"
                 android:layout_marginTop="24dp"
                 android:textColor="@color/white"/>
@@ -53,7 +53,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="E-mail"
+                android:text="@string/email_text"
                 android:id="@+id/textViewEmail"
                 android:layout_marginTop="24dp"
                 android:textColor="@color/white"/>
@@ -63,18 +63,16 @@
                 android:id="@+id/editEmail"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Digite seu e-mail"
+                android:hint="@string/email_empty"
                 android:inputType="textEmailAddress"
-                android:padding="10dp"
                 android:layout_marginTop="4dp"
-                android:background="@drawable/bg_edit_text"/>
+                style="@style/EditTextTheme"/>
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enviar"
-                android:textColor="@color/color_default"
-                app:backgroundTint="@null"
+                android:text="@string/text_button_recover_account_fragment"
+                style="@style/ButtonTheme"
                 android:background="@drawable/bg_btn"
                 android:layout_marginTop="16dp"
                 android:id="@+id/buttonEnviar"/>
