@@ -6,19 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.francisco.task.R
+import com.francisco.task.data.model.Task
 import com.francisco.task.databinding.FragmentTodoBinding
+import com.francisco.task.ui.adapter.TaskAdapter
 
 
 class TodoFragment : Fragment() {
 
-
+    private lateinit var taskAdapter: TaskAdapter
     private var _binding: FragmentTodoBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
+
     ): View {
         _binding = FragmentTodoBinding.inflate(inflater,container,false)
         return binding.root
@@ -33,8 +38,26 @@ class TodoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
+
+        initRecyclerViewTask(getTask())
     }
 
+    private fun getTask() = listOf(
+        Task(id = "0", description = "Criar nova tela do app"),
+        Task(id = "1", description = "Validar informações na tela de login"),
+        Task(id = "2", description = "Adicionar nova funcionalidade no app"),
+        Task(id = "3", description = "Salvar token localmente"),
+        Task(id = "2", description = "Criar funcionalidade de logout no app"),
+    )
+
+    private fun initRecyclerViewTask(taskList: List<Task>){
+
+        taskAdapter = TaskAdapter(taskList)
+        binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewTask.setHasFixedSize(true)
+
+        binding.recyclerViewTask.adapter = taskAdapter
+    }
 
 
     override fun onDestroyView() {
