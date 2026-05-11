@@ -35,6 +35,12 @@
             android:name="com.francisco.task.ui.auth.RegisterFragment"
             android:label="fragment_register"
             tools:layout="@layout/fragment_register" />
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            />
         <fragment
             android:id="@+id/recoverAccountFragment"
             android:name="com.francisco.task.ui.auth.RecoverAccountFragment"
