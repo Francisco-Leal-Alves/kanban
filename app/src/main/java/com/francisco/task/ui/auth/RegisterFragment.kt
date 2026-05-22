@@ -1,8 +1,8 @@
 package com.francisco.task.ui.auth
 
-import android.R
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.core.view.isVisible
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,28 +48,30 @@ class RegisterFragment : Fragment() {
 
         if (email.isNotBlank()) {
             if (senha.isNotBlank()) {
-                // Comentário temporário somente para testar a validação dos dados
-                findNavController().navigate(R.id.action_global_homeFragment)
+                binding.progressBar.isVisible = true
+                registerUser(email,senha)
 
             } else {
-                showBottomSheet(message = R.string.password_empty_register_fragment)
+                showBottomSheet(message = getString(R.string.password_empty_register_fragment))
             }
         } else {
-            showBottomSheet(message = R.string.email_empty_register_fragment)
+            showBottomSheet(message = getString(R.string.email_empty_register_fragment))
         }
     }
 
     private fun registerUser(email: String, password: String){
 
         try {
-            val auth = FirebaseAuth.getInstance()
+            val auth =  FirebaseAuth.getInstance()
 
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener{ task ->
-                    if (task.isSucessful){
+                    if (task.isSuccessful){
                         findNavController().navigate(R.id.action_global_homeFragment)
                     } else {
-                        Toast.makeText(requireContext, task.exception?.message, Toast.LENGTH_SHORT).show()
+                        binding.progressBar.isVisible = false
+
+                        Toast.makeText(requireContext(), task.exception?.message, Toast.LENGTH_SHORT).show()
                     }
                 }
         } catch (e: Exception){

@@ -2,13 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
+    id("com.google.gms.google-services") // <-- ADICIONADO: Aplica o plugin do Firebase aqui
 }
 
 android {
     namespace = "com.francisco.task"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 37 // <-- CORRIGIDO: Removido o bloco incorreto 'version = release(36)'
 
     defaultConfig {
         applicationId = "com.francisco.task"
@@ -36,7 +35,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    viewBinding{
+    viewBinding {
         enable = true
     }
 }
@@ -44,11 +43,17 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    // <-- CORRIGIDO: Usando o Firebase BoM moderno para gerenciar as versões sem quebrar
+    implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
+    implementation("com.google.firebase:firebase-auth")
+
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
