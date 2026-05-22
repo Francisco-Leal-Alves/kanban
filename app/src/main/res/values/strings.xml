@@ -37,4 +37,8 @@
     <string name="text_title_dialog_confira_logout">Deseja sair da sua conta?</string>
     <string name="text_button_dialog_confirm_logout">Confirmar</string>
     <string name="text_message_dialog_confirm_logout">Aperte em confirmar para sair da sua conta</string>
+
+    <string name="text_save_success_form_task_fragment">Tarefa salva com sucesso!</string>
+    <string name="error_generic">Ocorreu um erro inesperado. Tente novamente mais tarde.</string>
+
 </resources>

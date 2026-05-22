@@ -47,6 +47,8 @@ dependencies {
     // <-- CORRIGIDO: Usando o Firebase BoM moderno para gerenciar as versões sem quebrar
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database-ktx:21.0.0")
+
 
     implementation(libs.material)
     implementation(libs.androidx.activity)
@@ -57,4 +59,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
 }
