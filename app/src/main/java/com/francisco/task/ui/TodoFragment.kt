@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.francisco.task.R
+import com.francisco.task.data.model.Status
 import com.francisco.task.data.model.Task
 import com.francisco.task.databinding.FragmentTodoBinding
 import com.francisco.task.ui.adapter.TaskAdapter
@@ -43,11 +44,11 @@ class TodoFragment : Fragment() {
     }
 
     private fun getTask() = listOf(
-        Task(id = "0", description = "Criar nova tela do app"),
-        Task(id = "1", description = "Validar informações na tela de login"),
-        Task(id = "2", description = "Adicionar nova funcionalidade no app"),
-        Task(id = "3", description = "Salvar token localmente"),
-        Task(id = "2", description = "Criar funcionalidade de logout no app"),
+        Task(id = "0", description = "Criar nova tela do app", Status.TODO),
+        Task(id = "1", description = "Validar informações na tela de login", Status.TODO),
+        Task(id = "2", description = "Adicionar nova funcionalidade no app", Status.TODO),
+        Task(id = "3", description = "Salvar token localmente", Status.TODO),
+        Task(id = "2", description = "Criar funcionalidade de logout no app", Status.TODO),
     )
 
     private fun initRecyclerViewTask(taskList: List<Task>){

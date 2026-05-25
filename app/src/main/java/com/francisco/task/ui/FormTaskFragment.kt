@@ -1,5 +1,7 @@
 package com.francisco.task.ui
 
+import com.francisco.task.util.initToolbar
+import com.francisco.task.util.showBottomSheet
 import android.net.http.UrlRequest
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,13 +11,11 @@ import android.view.ViewGroup
 import com.francisco.task.R
 import com.francisco.task.databinding.FragmentFormTaskBinding
 import com.francisco.task.databinding.FragmentRegisterBinding
-import com.francisco.task.util.initToolbar
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.francisco.task.data.model.Status
 import com.francisco.task.data.model.Task
-import com.francisco.task.util.showBottomSheet
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -77,7 +77,7 @@ class FormTaskFragment : Fragment() {
             binding.progressBar.isVisible = true
 
             if(newTask) task = Task()
-            task.id = reference.database.reference.push().key ?: ""
+            task.id = reference.push().key ?: ""
             task.description = description
             task.status = status
 
