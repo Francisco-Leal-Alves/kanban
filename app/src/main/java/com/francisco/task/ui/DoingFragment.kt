@@ -50,13 +50,16 @@ class DoingFragment : Fragment() {
 
     private fun initRecyclerViewTask(taskList: List<Task>){
 
-        taskAdapter = TaskAdapter(taskList)
+        taskAdapter = TaskAdapter(requireContext(),taskList) {task, option -> optionSelected(task, option)}
         binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewTask.setHasFixedSize(true)
 
         binding.recyclerViewTask.adapter = taskAdapter
     }
 
+    private fun optionSelected(task:Task, option:Int){
+
+    }
 
 
     override fun onDestroyView() {

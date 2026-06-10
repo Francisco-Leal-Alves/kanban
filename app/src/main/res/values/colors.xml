@@ -8,4 +8,7 @@
     <color name="color_details">#030150</color>
 
     <color name="green">#4CAF50</color>
+
+    <color name="color_status_todo">#FF841A</color>
+    <color name="color_status_done">#04D5C1</color>
 </resources>
